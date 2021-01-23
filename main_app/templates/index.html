@@ -1,0 +1,14 @@
+{% block content %}
+    <form action="{% url 'index' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+        <div class="g-recaptcha" data-sitekey="6LfIO3AUAAAAAE_3Gg34AnZcn-DwLCPoP5lug-v1"></div>
+        {% if messages %}
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        {% endif %}
+        <input type="submit" value="Зарегистрироваться">
+    </form>
+{% endblock %}
